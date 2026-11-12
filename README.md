@@ -273,14 +273,6 @@ AuditLogs
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## How to Upload Screenshots
-
-1. In your GitHub repo, create a folder called **`screenshots`**
-2. Rename each screenshot to match the filenames in the table above exactly
-3. Drag and drop them into the `screenshots/` folder on GitHub
-4. The images will automatically appear inline in this README
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Skills Demonstrated
 
