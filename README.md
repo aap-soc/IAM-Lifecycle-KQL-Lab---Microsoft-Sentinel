@@ -1,5 +1,5 @@
 
-# IAM Lifecycle KQL Lab — Microsoft Sentinel
+# IAM Lifecycle KQL Lab - Microsoft Sentinel
 
 A hands-on security lab demonstrating Identity and Access Management (IAM) monitoring using KQL (Kusto Query Language) in Microsoft Sentinel. All queries have been executed against a live Azure environment with real event data.
 
@@ -7,7 +7,7 @@ A hands-on security lab demonstrating Identity and Access Management (IAM) monit
 
 ## What is JML?
 
-**JML** stands for **Joiners, Movers, and Leavers** — the three key stages of the identity lifecycle:
+**JML** stands for **Joiners, Movers, and Leavers** - the three key stages of the identity lifecycle:
 
 |    Stage    |             What it means                |        Security risk if missed              |
 |-------------|------------------------------------------|---------------------------------------------|
@@ -101,7 +101,7 @@ SecurityEvent
 
 **What to flag:** Accounts still active after an employee's last day, or deletions without a prior disable step.
 
-**Lab result:** Returned 2 rows — `labtest` correctly disabled then deleted by `sentinel-admin-user`. ✅
+**Lab result:** Returned 2 rows - `labtest` correctly disabled then deleted by `sentinel-admin-user`. ✅
 
 ![Q2 Leaver Results](screenshots/q2-leaver-disabled-deleted.png)
 
@@ -149,7 +149,7 @@ SecurityEvent
 
 **What to flag:** Any addition to a privileged group that wasn't pre-approved via a Change Request or PAM workflow.
 
-**Lab result:** Returned 1 row — `labtest2` added to `Administrators` group by `sentinel-admin-user`. Alert correctly triggered. ✅
+**Lab result:** Returned 1 row - `labtest2` added to `Administrators` group by `sentinel-admin-user`. Alert correctly triggered. ✅
 
 ![Q4 Privileged Group Alert](screenshots/q4-privileged-group-alert.png)
 
