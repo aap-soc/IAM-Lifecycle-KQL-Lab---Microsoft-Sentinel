@@ -230,40 +230,6 @@ AuditLogs
 ```
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### A4 - Brute Force Detection
-
-**What it does:** Counts failed sign-in attempts per user and IP address. Surfaces accounts with 5 or more failures - a common indicator of a brute force or password spray attack.
-
-**Why it matters:** A single failed login is normal. Fifty failures from one IP against multiple accounts in an hour is an attack.
-
-```kql
-SigninLogs
-| where ResultType != 0
-| summarize FailedAttempts = count(), UniqueApps = dcount(AppDisplayName),
-    SampleApps = make_set(AppDisplayName, 3), ErrorCodes = make_set(ResultType, 3)
-    by UserPrincipalName, IPAddress
-| where FailedAttempts >= 5
-| sort by FailedAttempts desc
-```
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### A5 - Sign-In Outside Working Hours
-
-**What it does:** Identifies Azure AD sign-ins that occurred outside business hours using `datetime_part()` on the sign-in timestamp.
-
-```kql
-SigninLogs
-| where ResultType == 0
-| extend HourOfDay = datetime_part("hour", TimeGenerated)
-| where HourOfDay !between (8 .. 18)
-| project TimeGenerated, HourOfDay, UserPrincipalName, AppDisplayName, IPAddress, Location
-| sort by TimeGenerated desc
-```
-
----
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## KQL Concepts Used
 
 |          Concept             |                Used In                          |
