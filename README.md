@@ -196,6 +196,7 @@ AuditLogs
 | project TimeGenerated, JMLAction = "Joiner — User Created", NewUser, DisplayName, CreatedBy
 | sort by TimeGenerated desc
 ```
+![A1 Azure AD Joiner](screenshots/A1-Joiner_Azure%20User%20Created.png)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -212,6 +213,8 @@ AuditLogs
 | project TimeGenerated, JMLAction = "Leaver — Account Disabled", AffectedUser, DisabledBy
 | sort by TimeGenerated desc
 ```
+![A2 Azure AD Leaver](screenshots/A2-Leaver_Azure%20Account%20Disabled.png)
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -228,6 +231,8 @@ AuditLogs
 | project TimeGenerated, OperationName, AffectedUser, RoleName, ChangedBy
 | sort by TimeGenerated desc
 ```
+![A3 Azure AD Mover](screenshots/A3-Mover_Azure%20Role%20Assignment.png)
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## KQL Concepts Used
@@ -254,22 +259,19 @@ AuditLogs
 
 > All screenshots are saved in the [`screenshots/`](screenshots/) folder of this repository.
 
-|        Query        |                                    File                                        |                  Evidence                   |
-|---------------------|--------------------------------------------------------------------------------|---------------------------------------------|
-| Q1 Joiner           | [`q1-joiner-account-created.png`](screenshots/q1-joiner-account-created.png)   | `labtest` + `labtest2` created - 2 results  |
-| Q2 Leaver           | [`q2-leaver-disabled-deleted.png`](screenshots/q2-leaver-disabled-deleted.png) | `labtest` disabled + deleted - 2 results    |
-| Q3 Mover            | [`q3-mover-group-changes.png`](screenshots/q3-mover-group-changes.png)         |    7 group membership changes detected      |
-| Q4 Privileged Alert | [`q4-privileged-group-alert.png`](screenshots/q4-privileged-group-alert.png)   | `labtest2` → Administrators group - 1 alert |
-| Q5 Off-Hours        | [`q5-off-hours-iam-changes.png`](screenshots/q5-off-hours-iam-changes.png)     |    All 7 IAM events flagged at hour 21      |
-| Sentinel Setup      | [`sentinel-connector-setup.png`](screenshots/sentinel-connector-setup.png)     | Windows Security Events via AMA - Connected |
-| DCR Config          | [`dcr-data-collection-rule.png`](screenshots/dcr-data-collection-rule.png)     |  VM attached to DCR, Common events selected |
+|        Query        |                                    File                                                 |                  Evidence                   |
+|---------------------|-----------------------------------------------------------------------------------------|---------------------------------------------|
+| Q1 Joiner           |   [`q1-joiner-account-created.png`](screenshots/q1-joiner-account-created.png)          | `labtest` + `labtest2` created - 2 results  |
+| Q2 Leaver           |   [`q2-leaver-disabled-deleted.png`](screenshots/q2-leaver-disabled-deleted.png)        | `labtest` disabled + deleted - 2 results    |
+| Q3 Mover            |   [`q3-mover-group-changes.png`](screenshots/q3-mover-group-changes.png)                |    7 group membership changes detected      |
+| Q4 Privileged Alert |   [`q4-privileged-group-alert.png`](screenshots/q4-privileged-group-alert.png)          | `labtest2` → Administrators group - 1 alert |
+| Q5 Off-Hours        |   [`q5-off-hours-iam-changes.png`](screenshots/q5-off-hours-iam-changes.png)            |    All 7 IAM events flagged at hour 21      |
+| Sentinel Setup      |   [`sentinel-connector-setup.png`](screenshots/sentinel-connector-setup.png)            | Windows Security Events via AMA - Connected |
+| DCR Config          |   [`dcr-data-collection-rule.png`](screenshots/dcr-data-collection-rule.png)            |  VM attached to DCR, Common events selected |
+| A1 Azure AD Joiner  | [`A1-Joiner_Azure User Created.png`](screenshots/A1-Joiner_Azure%20User%20Created.png)  | Azure AD user creation via AuditLogs         |
+| A2 Azure AD Leaver  | [`A2-Leaver_Azure Account Disabled.png`](screenshots/A2-Leaver_Azure%20Account%20Disabled.png) | Azure AD account disabled via AuditLogs |
+| A3 Azure AD Mover   | [`A3-Mover_Azure Role Assignment.png`](screenshots/A3-Mover_Azure%20Role%20Assignment.png) | Azure AD role assignment via AuditLogs      |
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## Portfolio / CV Description
-
-> **IAM Lifecycle Monitoring Lab — Microsoft Sentinel (KQL)**
-> Built and executed a 10-query KQL lab in Microsoft Sentinel covering the full JML (Joiners, Movers, Leavers) identity lifecycle across both Windows (`SecurityEvent`) and Azure AD (`AuditLogs` / `SigninLogs`) data sources. Deployed a Windows Server VM in Azure, configured the Windows Security Events via AMA connector with a Data Collection Rule, and generated real event data using `net user` and `net localgroup` commands. Queries detect account creation (4720), disablement (4725), deletion (4726), privileged group additions (4732), off-hours IAM activity, brute force patterns, and Azure AD role changes. Demonstrated core KQL skills: filtering, extending, aggregating, and time-based analysis.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -277,3 +279,14 @@ AuditLogs
 ## Skills Demonstrated
 
 `Microsoft Sentinel` · `KQL` · `Azure Monitor` · `Windows Security Events` · `Azure AD / Entra ID` · `IAM` · `JML Lifecycle` · `SOC Analysis` · `Threat Detection` · `Log Analytics` · `Data Collection Rules` · `AMA Connector`
+
+
+
+
+
+
+
+
+
+
+
