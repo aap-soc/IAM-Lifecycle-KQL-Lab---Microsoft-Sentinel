@@ -81,7 +81,7 @@ SecurityEvent
 
 **Lab result:** Returned 2 rows - `labtest` and `labtest2` both created by `sentinel-admin-user`. ✅
 
-![Q1 Joiner Results](screenshots/Q1-Joiner Results.png)
+![Q1 Joiner Results](screenshots/q1-joiner-account-created.png)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -261,7 +261,7 @@ AuditLogs
 | Q3 Mover            | [`q3-mover-group-changes.png`](screenshots/q3-mover-group-changes.png)         |    7 group membership changes detected      |
 | Q4 Privileged Alert | [`q4-privileged-group-alert.png`](screenshots/q4-privileged-group-alert.png)   | `labtest2` → Administrators group - 1 alert |
 | Q5 Off-Hours        | [`q5-off-hours-iam-changes.png`](screenshots/q5-off-hours-iam-changes.png)     |    All 7 IAM events flagged at hour 21      |
-| Sentinel Setup      | [`sentinel-connector-setup.png`](screenshots/sentinel-connector-setup.png)     | Windows Security Events via AMA-— Connected |
+| Sentinel Setup      | [`sentinel-connector-setup.png`](screenshots/sentinel-connector-setup.png)     | Windows Security Events via AMA - Connected |
 | DCR Config          | [`dcr-data-collection-rule.png`](screenshots/dcr-data-collection-rule.png)     |  VM attached to DCR, Common events selected |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
